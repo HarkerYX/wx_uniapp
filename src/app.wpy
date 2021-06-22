@@ -59,6 +59,16 @@ export default class extends wepy.app {
           selectedIconPath: '/assets/icons/my-active.png'
         }
       ]
+    },
+
+    // 引用并注册全局组件
+    usingComponents: {
+      // 徽章组件
+      'van-badge': './assets/vant/badge/index',
+      'van-badge-group': './assets/vant/badge-group/index',
+      // 布局相关的组件
+      'van-row': './assets/vant/row/index',
+      'van-col': './assets/vant/col/index'
     }
   }
 
