@@ -1,7 +1,7 @@
 {
   "description": "weixin uniapp",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "enhance": false,
     "postcss": false,
@@ -40,5 +40,24 @@
   "appid": "wx9f1b4a3920e8f027",
   "projectname": "uniapp",
   "miniprogramRoot": "dist/",
-  "condition": {}
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/tabs/cates",
+          "pathName": "pages/tabs/cates",
+          "scene": null
+        }
+      ]
+    }
+  }
 }
