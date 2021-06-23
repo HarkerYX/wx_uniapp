@@ -13,7 +13,8 @@ export default class extends wepy.app {
       'pages/tabs/search',
       'pages/tabs/cart',
       'pages/tabs/me',
-      'pages/goods_list'
+      'pages/goods_list',
+      'pages/goods_detail/main'
     ],
 
     window: {
@@ -68,7 +69,40 @@ export default class extends wepy.app {
       'van-badge-group': './assets/vant/badge-group/index',
       // 布局相关的组件
       'van-row': './assets/vant/row/index',
-      'van-col': './assets/vant/col/index'
+      'van-col': './assets/vant/col/index',
+      // 商品卡片组件
+      'van-card': './assets/vant/card/index',
+      'van-search': './assets/vant/search/index',
+      // 单元格组件
+      'van-cell': './assets/vant/cell/index',
+      'van-cell-group': './assets/vant/cell-group/index',
+      // 图标
+      'van-icon': './assets/vant/icon/index',
+      // Tag 标签
+      'van-tag': './assets/vant/tag/index'
+      //   // 商品卡片组件
+      //   //   'van-card': './assets/vant/card/index',
+      //   // tab 标签页
+      //   'van-tab': './assets/vant/tab/index',
+      //   'van-tabs': './assets/vant/tabs/index',
+      //   // 把 HTML 代码转换为 WXML 代码的插件
+      //   //   wxparse: './assets/wxparse/wxparse',
+      //   // 商品导航区域
+      //   'van-goods-action': './assets/vant/goods-action/index',
+      //   'van-goods-action-icon': './assets/vant/goods-action-icon/index',
+      //   'van-goods-action-button': './assets/vant/goods-action-button/index',
+      //   // Stepper 步进器
+      //   'van-stepper': './assets/vant/stepper/index',
+      //   // 复选框
+      //   'van-checkbox': './assets/vant/checkbox/index',
+      //   // 滑动单元格组件
+      //   'van-swipe-cell': './assets/vant/swipe-cell/index',
+      //   // 提交订单
+      //   'van-submit-bar': './assets/vant/submit-bar/index',
+      //   // 按钮组件
+      //   'van-button': './assets/vant/button/index',
+      //   // Panel 面板
+      //   'van-panel': './assets/vant/panel/index'
     }
   }
 
@@ -83,6 +117,37 @@ export default class extends wepy.app {
     // 通过下面这一行代码，可以为异步的API，
     // 开启Promise功能，这样，异步API调用的结果，返回值是Promise对象
     this.use('promisify')
+
+    // 拦截器
+    this.intercept('request', {
+      // 发出请求时的回调函数
+      config(p) {
+        // 显示loading效果
+        wepy.showLoading({
+          title: '数据加载中...'
+        })
+        // 必须返回OBJECT参数对象，否则无法发送请求到服务端
+        return p
+      },
+
+      // 请求成功后的回调函数
+      success(p) {
+        // 必须返回响应数据对象，否则后续无法对响应数据进行处理
+        return p
+      },
+
+      // 请求失败后的回调函数
+      fail(p) {
+        // 必须返回响应数据对象，否则后续无法对响应数据进行处理
+        return p
+      },
+
+      // 请求完成时的回调函数(请求成功或失败都会被执行)
+      complete(p) {
+        // 隐藏loading效果
+        wepy.hideLoading()
+      }
+    })
   }
 
   onLaunch() {}

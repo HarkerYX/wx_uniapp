@@ -1,0 +1,16 @@
+<template>
+  <view> 商品描述頁面 </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+// 1. 导入外界的 mixin 文件，并接受
+// @ 就代表 src 这一层路径
+import mix from '@/mixins/tabs/home.js'
+export default class extends wepy.page {
+  // 2. 把导入的 mix 对象，挂载到 mixins 这个数据中就行
+  mixins = [mix]
+}
+</script>
+
+<style lang="less"></style>

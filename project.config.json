@@ -55,6 +55,12 @@
         {
           "name": "pages/tabs/cates",
           "pathName": "pages/tabs/cates",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/tabs/search",
+          "pathName": "pages/tabs/search",
           "scene": null
         }
       ]
